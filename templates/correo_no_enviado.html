@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block titulo %}Mensaje No Enviado{% endblock %}
+
+{% block contenido %}
+<div class="d_priv">
+	<h3>Mensaje No Enviado</h3>
+	<p>Su mensaje no ha podido ser enviado</p>
+</div>
+<div class="env_img"><img src="{% static 'img/unlike.png'%}"></div>
+
+{% endblock %}

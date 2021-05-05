@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+<!-- {% load static%} -->
+
+{% block titulo %}Ingreso Incorrecto{% endblock %}
+
+{% block cabecera %}La Biblioteca{% endblock %}
+
+{% block contenido %} 
+<div class="d_nuser">
+	<div>
+		<i class="fas fa-ban"></i>
+		<h2>Ingreso Incorrecto</h2>
+		<p id="">El usuario o la contraseña ingresado son incorrectas ó no existen. Vuelva a intentarlo o regístrese.</p>
+		<a href="{% url 'ingresar' %}" title="Ingreso">Ingreso</a>
+		<a href="{% url 'registro' %}" title="Registro">Registro</a>
+	</div>
+</div>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block titulo %}Bienvenido{% endblock %}
+{% block contenido %}
+<div class="d_priv">
+	<i class="fas fa-check-circle"></i>
+	<h3>¡Bienvenido!</h3>
+	<p>{{usuario.username|upper}}</p>
+</div>
+{% endblock %}

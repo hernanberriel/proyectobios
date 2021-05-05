@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block titulo %}Login{% endblock %}
+{% block contenido %}
+<div class="d_ing">
+	<div class="d_i_tar">
+		<p>Ingresar Usuario</p>
+		<form id="form" method="post" action="">{% csrf_token %}
+			{% for campo in formulario %}
+				{{campo.label_tag}}
+				{{campo}}
+			{% endfor %}
+			<input id="d_i_ing" type="submit" value="Ingresar" >
+			
+		</form>
+	</div>
+</div>
+{% endblock %}

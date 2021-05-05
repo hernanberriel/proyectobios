@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block titulo %}¡Registro exitoso!{% endblock %}
+
+{% block contenido %}
+<div class="d_nuser">
+	<div>
+		<i class="fas fa-check-circle"></i>
+		<h2>¡Registro exitoso!</h2>
+		<p>Su registro se ha realizado correctamente. Ya puede ingresar al sistema</p>
+		<a href="{% url 'ingresar'%}">Ingresar</a>
+	</div>
+</div>
+{% endblock %}

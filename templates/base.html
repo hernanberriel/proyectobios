@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<title>{% block titulo %} {% endblock %}</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;800&family=Ruthie&display=swap" rel="stylesheet">
+	<link rel="shortcut icon" type="text/css" href="{% static 'img/abc2.png' %}">
+	<script src="https://kit.fontawesome.com/d391c920de.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<img class="body_img" src="{% static 'img/f3.jpg' %}">
+<div class="div_header">
+	<header>
+		<div class="d_h_bg"><img src="{% static 'img/34.jpg' %}"></div>
+		<div class="d_h_h1">
+			<img src="{% static 'img/abc1.png' %}" id="header_img">
+			<h1 id="header_h1">Fernández</h1>
+			<p id="header_p">licores & delicatessen</p>
+		</div>
+	</header>
+</div>
+<div class="d_h_nav">
+	<nav>
+		<ul>
+			<li><a href="/">Inicio</a></li>
+			<li><a href="{% url 'empresa' %}">Nuestra Empresa</a></li>
+			<li><a href="{% url 'contacto' %}">Contacto</a></li>
+		</ul>
+	</nav>
+</div>
+<div class="d_h_reg">
+	<div class="d_c_form">
+		<h3 class="d_c_form_h3">Encontrá productos, marcas y más</h3>
+		<form id="busqueda" method="get" action="/buscar/">
+			<input id="form_bus" type="text" name="busqueda">
+			<button id="boton"><i class="fas fa-search"></i></button>
+		</form>
+	</div>
+	<div class="d_h_r_reg">
+		<div class="d_h_r_r_name">
+			{% if request.user.is_authenticated %}
+					<p class="p_user"> Bienvenido, {{request.user.username|upper}}
+				{% else %}
+					<p class="p_user">Usuario no autenticado</p>
+				{% endif %}
+		</div>
+		<nav>
+			<ul>
+				{% if request.user.is_anonymous %}
+				<li><a href="{% url 'ingresar' %}"><i class="fas fa-user"></i>  Ingreso</a></li>
+				<li><a href="{% url 'registro' %}"><i class="fas fa-user-plus"></i>  Registro</a></li>
+				{% else %}
+				<li><a href="{% url 'salir' %}" title="Salir"><i class="fas fa-sign-out-alt"></i> Salir</a></li>
+				{% endif %}
+			</ul>
+		</nav>
+	</div>
+</div>
+<div class="div_content">
+	<div class="content_fondo"></div>
+	<content>
+
+	{% block contenido %}
+	{% endblock %}
+	</content>
+</div>
+	
+<div class="div_footer">
+	<footer>
+		<div class="carousel_container">
+	<div class="slider">
+    	<div class="slide-track">
+        	<div class="slide">
+            	<img src="{% static 'img/baileys-logo.svg'%}" height="100" width="150" alt="" />
+        	</div>
+        	<div class="slide">
+            	<img src="{% static 'img/johnnie-walker-logo.svg'%}" height="100" width="150" alt="" />
+        	</div>
+        	<div class="slide">
+            	<img src="{% static 'img/smirnoff-logo.svg'%}" height="90" width="150" alt="" />
+        	</div>
+            <div class="slide">
+                <img src="{% static 'img/jb-logo.svg'%}" height="100" width="150" alt="" />
+            </div>
+            <div class="slide">
+                <img src="{% static 'img/captain-morgan-logo.svg'%}" height="100" width="150" alt="" />
+            </div>
+            <div class="slide">
+                <img src="{% static 'img/buchanans-logo.svg'%}" height="100" width="150" alt="" />
+            </div>
+            <div class="slide">
+                <img src="{% static 'img/crown-royal-logo.svg'%}" height="100" width="150" alt="" />
+            </div>
+            <div class="slide">
+                <img src="{% static 'img/baileys-logo.svg'%}" height="100" width="150" alt="" />
+            </div>
+            <div class="slide">
+                <img src="{% static 'img/johnnie-walker-logo.svg'%}" height="100" width="150" alt="" />
+            </div>
+            <div class="slide">
+                <img src="{% static 'img/smirnoff-logo.svg'%}" height="90" width="150" alt="" />
+            </div>
+            <div class="slide">
+                <img src="{% static 'img/jb-logo.svg'%}" height="100" width="150" alt="" />
+            </div>
+            <div class="slide">
+                <img src="{% static 'img/captain-morgan-logo.svg'%}" height="100" width="150" alt="" />
+            </div>
+            <div class="slide">
+                <img src="{% static 'img/buchanans-logo.svg'%}" height="100" width="100" alt="" />
+            </div>
+            <div class="slide">
+                <img src="{% static 'img/crown-royal-logo.svg'%}" height="100" width="150" alt="" />
+            </div>
+        </div>
+    </div>
+</div>
+		<div class="d_f_lt">
+			<ul>
+				<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+				<li><a href="#"><i class="fab fa-twitter"></i></a></li>
+				<li><a href="#"><i class="fab fa-instagram"></i></a></li>
+				<li><a href="#"><i class="fab fa-youtube"></i></a></li>
+			</ul>
+		</div>
+		<div class="d_f_mid">
+			<p>Proyecyo Python Bios 2021 &copy; </p>
+		</div>
+		<div class="d_f_rt">
+			<ul>
+				<li><a href="/"><i class="fas fa-home"></i></a></li>
+				<li><a href="{% url 'ingresar' %}"><i class="fas fa-user"></i></a></li>
+				<li><a href="{% url 'contacto' %}"><i class="fas fa-at"></i></a></li>
+			</ul>
+		</div>	
+	</footer>
+</div>
+</body>
+</html>

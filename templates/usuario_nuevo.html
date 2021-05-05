@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block titulo %}Usuario Nuevo{% endblock %}
+
+{% block contenido %}
+<div class="d_ing">
+	<div class="d_r_tar">
+
+		<p>Registrar Usuario</p>
+		<form id="formulario" method="post" action="">{% csrf_token %}
+			{% for campo in formulario %}
+			<p>
+			{{campo.label_tag}}<br>
+				{{campo}}
+			{% for error in campo.errors %}
+				{{error}}
+			{% endfor %}
+			</p>
+			{% endfor %}
+			<p>
+			<input id="d_u_reg" type="submit" value="Registrarse">
+			</p>
+		</form>
+	</div>
+</div>	
+
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block titulo %}Mensaje Enviado{% endblock %}
+
+{% block contenido %}
+<div class="d_priv">
+	<h3>Mensaje Enviado</h3>
+	<p>Su mensaje fue enviado con éxito</p>
+</div>
+<div class="env_img"><img src="{% static 'img/like.png'%}"></div>
+
+{% endblock %}

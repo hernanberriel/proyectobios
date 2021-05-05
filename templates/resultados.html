@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block titulo %}Resultado Búsqueda{% endblock%}
+
+{% block contenido %}
+
+<div class="d_resultados">
+	{% if bebida %}
+	<div class="d_r_h2">
+		<h2>
+			Hemos encontrado <strong>{{bebida|length}}</strong> artículo{{bebida|pluralize}}: 
+		</h2>
+	</div>
+	<div class="d_r_body">
+		<ul>
+			{% for a in bebida %}
+			<div class="d_r_tarj">
+				<li>
+					<div class="d_r_t_img">
+						<img class="r_img" src="{{a.imagen.url}}">
+					</div>
+					<div class="d_r_t_texto">
+						<h6>{{a.categoria}}</h6>
+						<h4>{{a.marca}}</h4>
+						<p>{{a.contenido_neto}}</p>
+						<div class="d_r_t_precio"><h5><span>$ </span> {{a.precio}}</h5></div>
+					</div>
+					<div class="d_r_t_boton">
+						<a href="#"><i class="fas fa-shopping-cart"></i></a>
+					</div>
+				</li>
+			</div>
+			{% endfor %}
+		</ul>
+	</div>
+	{% else %}
+	<div class="d_r_h2">
+		<h2>No hemos podido encotrar lo que buscas</h2>
+		<p>Puedes modificar tu búsqueda e intentarlo nuevamente</p>
+	</div>
+	{% endif %}
+</div>
+{% endblock %}

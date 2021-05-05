@@ -1,0 +1,84 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block titulo %}Licorería Fernandez S.A{% endblock%}
+
+{% block contenido %}
+
+<div class="d_index">
+{% if filtro %}
+	<div class="d_i_h3">
+		<h3>Nuestras recomendaciones:</h3>
+	</div>
+		<div class="d_r_body">
+			<ul>
+			{% for a in filtro %}
+			<div class="d_r_tarj">
+				<li>
+					<div class="d_r_t_img">
+						<img class="r_img" src="{{a.imagen.url}}">
+					</div>
+					<div class="d_r_t_texto">
+						<h6>{{a.categoria}}</h6>
+						<h4>{{a.marca}}</h4>
+						<p>{{a.contenido_neto}}</p>
+						<div class="d_r_t_precio"><h5><span>$ </span> {{a.precio}}</h5></div>
+						<!-- <p>Distribuidor: {{a.distribuidor.all|pluralize:"es"}}:
+							{% for i in a.distribuidor.all %}
+								{{i.nombre}}		
+							{% endfor %}</p> -->
+					</div>
+					<div class="d_r_t_boton">
+						<a href="{% url 'contacto' %}"><i class="fas fa-shopping-cart"></i></a>
+					</div>
+				</li>
+			</div>
+			{% endfor %}
+		</ul>
+	</div>
+{% else %}
+	<div class="d_r_h2">
+		<h2>No hemos podido encontrar productos que se ajusten</h2>
+		<p>Puedes recargar el sitio e intentarlo nuevamente</p>
+	</div>
+{% endif %}
+	<div class="d_i_tarj">
+		<div class="d_i_t_l">
+			<i class="far fa-clock"></i>
+			<h5>Horario</h5>
+			<p>Lunes a Viernes 9 hs a 19 hs</p>
+		</div>
+		<div class="d_i_t_m">
+			<i class="fas fa-map-marker-alt"></i>
+			<h5>Nuestro Local</h5>
+			<p>18 de julio 1253 </p>
+		</div>
+		<div class="d_i_t_r">
+			<i class="fas fa-shipping-fast"></i>
+			<h5>Delivery</h5>
+			<p>Entregas en el día</p>
+		</div>
+	</div>
+	<div class="d_i_form">
+		<h3 class="d_i_f_h3">Conocé nuestros productos</h3>
+		<form id="busqueda" method="get" action="/buscar/">
+			<input id="form_bus_i" type="text" name="busqueda">
+			<button id="i_boton"><i class="fas fa-search"></i></button>
+		</form>
+	</div>
+
+	<div class="d_i_promo_1">
+		<img src="{% static 'img/promo.png' %}">
+	</div>
+
+	
+	<div class="d_i_promo">
+		<img src="{% static 'img/bcorreo.jpg' %}">
+	</div>
+	<div class="d_i_banner">
+		<img src="{% static 'img/payment.png' %}">
+	</div>
+	
+</div>
+
+{% endblock %}
